@@ -79,13 +79,7 @@ def dashboard():
 @application.before_first_request
 def create_tables():
     db.create_all()
-    #etl.main()
-    
- 
-@application.before_request
-def log_request():
-    print( request, get_jwt_identity())
-    print( request.headers, "HEADERS")
+    etl.main()
     
     
     

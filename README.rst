@@ -19,7 +19,7 @@ I implemented the following methods for reporting:
 2.  Cash Flow: To extract a cashflow report by product by agencies and years
 3.  Revenues: To extract a revenue report by product by agencies and years
 4. Products: to extract all products
-5. Agencies: to getall agenncies
+5. Agencies: to get all agencies
 
 
 **Categorization**
