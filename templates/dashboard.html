@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>ETL process to load and summarize the data on the Agency Performance Model</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <link href="{{ url_for('static', filename='css/sb-admin.css') }}" rel="stylesheet">
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="/dashboard">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Dashboard</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+     <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="#" id="tableFill">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Profitability</span>
+          </a>
+         <div id="tableFillSelect" style="display:none;">
+            <select id="emptyDropdown3" class="browser-default custom-select custom-select-sm">
+                <option disabled selected value style="display:none;">--Please select a value</option>
+                <option  value="all" >All</option>
+            </select>
+            <select id="emptyDropdown4" class="browser-default custom-select custom-select-sm">
+                <option disabled selected value style="display:none;">--Please select a Year value</option>
+                <option  value="all" >All</option>
+            </select>
+           <div>
+                <button class="btn-primary" id="getprofitreport">Get Data</button>
+            </div>
+         <div>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="#" id="tableFillCash">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Cash Report by Agency</span>
+          </a>
+          <div id="tableFillCashSelect" style="display:none;">
+            <select id="emptyDropdown" class="browser-default custom-select custom-select-sm">
+                <option disabled selected value style="display:none;">--Please select a value</option>
+                <option  value="all" >All</option>
+            </select>
+            <div>
+                <button class="btn-primary" id="getcashreport">Get Data</button>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="#" id="tableFillRevenues">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Revenues</span>
+          </a>
+         <div id="tableFillSelectRevenues" style="display:none;">
+            <select id="emptyDropdown5" class="browser-default custom-select custom-select-sm">
+                <option disabled selected value style="display:none;">--Please select a value</option>
+                <option  value="all" >All</option>
+            </select>
+            <select id="emptyDropdown6" class="browser-default custom-select custom-select-sm">
+                <option disabled selected value style="display:none;">--Please select a Year value</option>
+                <option  value="all" >All</option>
+            </select>
+           <div>
+                <button class="btn-primary" id="getRevenuesreport">Get Data</button>
+            </div>
+         <div>
+        </li>
+        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="#" id="tableFillAgen">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">List of Agencies Dim</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="#" id="tableFillProd">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">List of Products Dim</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="#" id="tableFillAll">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">All Data</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="#" id="fillCluster">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Get Cluster</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="text-right">
+    <button class="btn-primary"  id="post-btn">Logout</button>
+  </nav>
+  
+  </div>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">My Dashboard</li>
+      </ol>
+      <div class="row">
+    
+      </div>
+      <div class="" id = "allElement" >
+          <div id = "main">
+          </div>
+      </div>
+      <!-- Example DataTables Card-->
+      <div class="">
+        <p id="toggleProf" style="display:none">0<p>
+        <p id="toggleProf2" style="display:none">0<p>
+        <div id="appendTable">
+        </div>        
+      </div>
+      
+      <p id="toggleCash" style="display:none">0<p>
+      <p id="toggleCash2" style="display:none">0<p>
+     <div class="" id="TableCashToggle">
+        <div class="col-sm-12 my-auto">
+            <canvas id="lineChart" width="100" height="50">
+            </canvas>
+        </div>        
+        <div id="appendTableCash" class="col-sm-12 my-auto">
+        </div>                
+     </div>
+     
+     <p id="toggleRevenues" style="display:none">0<p>
+     <p id="toggleRevenues2" style="display:none">0<p>
+     <div id="appendTableRevenues">
+
+     </div>
+
+     <p id="toggleAgen" style="display:none">0<p>
+     <div id="appendTableAgen">
+
+      </div>
+    <p id="toggleProd" style="display:none">0<p>
+     <div id="appendTableProd">
+
+      </div>
+    <p id="toggleAll" style="display:none">0<p>
+     <div id="appendTableAll">
+
+     </div>
+     <p id="toggleCluster" style="display:none">0<p>
+     <div class="" id="TableCluster" style="display:none">
+        <div class="col-sm-12 my-auto">
+              <canvas id="myScatterChart" width="100" height="50">
+            </canvas>
+        </div> 
+        <div class="text-center">
+          <p> We implemented the <strong>K-Mean</strong> algorithm in order to Clustering the agencies based in similarities and to find groups(clusters) to the given data.</p> 
+            <p>The algorithm has proposed 4 groups, we plot the group using another machine learning algorithm called <strong>Principal Component analysis</strong>.</p>
+           <p> The customer can see the groups and in the table below see which one agency is group related.
+          </p>
+        </div>       
+        <div id="appendTableCluster" class="col-sm-12 my-auto">
+        </div>                
+      </div>
+      
+    </div>
+
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small><a href="https://armandds.github.io/#projects"> Copyright © Armand 2019</a></small>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+ 
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+    <script src="{{ url_for('static', filename='js/customer.js') }}"></script>
+  
+  
+  </div>
+</body>
+</html>
