@@ -118,6 +118,7 @@ Save the authorizaton token and send it with every api request, for example to r
 this return the list of products in json format
 
 The another end points implemented are:
+------------------------------------------
 
 - '/cashreport': get all agencies cash flow report data 
 - '/cashreport/agency/agency_id': get only cash flow report data from agency id equal to agency_number (json format)
