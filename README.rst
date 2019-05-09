@@ -104,29 +104,31 @@ I implemented A REST API based on the above ETL process working with mysql + ela
 
 you can use the API using curl or postman:
 please login with the credentials and get the token (this token will expires in 1 hour)
+
 .. code-block:: bash
-$curl -X POST -F username=guest -F password=guest http://localhost:5000/login
+	$curl -X POST -F username=guest -F password=guest http://localhost:5000/login
 
 Save the authorizaton token and send it with every api request, for example to request all products dimension:
+
 .. code-block:: bash
-curl -X GET http://flaskapp1-dev22.us-west-2.elasticbeanstalk.com/allproducts  -H "authorization: Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTY5OTI2MDUsIm5iZiI6MTU1Njk5MjYwNSwianRpIjoiNzMyZWRkM2QtN2YxMi00MzMzLTkyNWMtYzEyMDAxMDIzYzYxIiwiZXhwIjoxNTU2OTk2MjA1LCJpZGVudGl0eSI6ImFybWFuZDIiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.bCUipAp6h6BzX-gohHLmBq39sXhEUYhy6AZXlW94lT4" 
+	curl -X GET http://flaskapp1-dev22.us-west-2.elasticbeanstalk.com/allproducts  -H "authorization: Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTY5OTI2MDUsIm5iZiI6MTU1Njk5MjYwNSwianRpIjoiNzMyZWRkM2QtN2YxMi00MzMzLTkyNWMtYzEyMDAxMDIzYzYxIiwiZXhwIjoxNTU2OTk2MjA1LCJpZGVudGl0eSI6ImFybWFuZDIiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.bCUipAp6h6BzX-gohHLmBq39sXhEUYhy6AZXlW94lT4" 
 
 this return the list of products in json format
 
 The another end points implemented are:
 
- '/cashreport': get all agencies cash flow report data 
- '/cashreport/agency/agency_id': get only cash flow report data from agency id equal to agency_number (json format)
- '/profitability': get all agencies profitabilities report data (json format)
- '/profitability/agency/agency_id': get all only profitabilities report data of a particular agency (json format)
- '/profitability/agency/agency_id/year/year_number':  get all only profitabilities report data of a particular agency and year (json format), i.e the data that meet the criteria.
- '/alldata': Downdload CSV 
- '/allagencies': get all agencies dimension (json format) 
- '/allproducts': get all products dimension (json format) 
- '/revenues':  get all agencies revenues report data (json format)
- '/revenues/agency/agency_id':  get all only revenues report data of a particular agency (json format)
- '/revenues/agency/agency_id/year/year_number': get all only revenues report data of a particular agency and year (json format), i.e the data that meet the criteria.
- '/clustering': get the cluster classification of the agencies (json format)
+- '/cashreport': get all agencies cash flow report data 
+- '/cashreport/agency/agency_id': get only cash flow report data from agency id equal to agency_number (json format)
+- '/profitability': get all agencies profitabilities report data (json format)
+- '/profitability/agency/agency_id': get all only profitabilities report data of a particular agency (json format)
+- '/profitability/agency/agency_id/year/year_number':  get all only profitabilities report data of a particular agency and year (json format), i.e the data that meet the criteria.
+- '/alldata': Downdload CSV 
+- '/allagencies': get all agencies dimension (json format) 
+- '/allproducts': get all products dimension (json format) 
+- '/revenues':  get all agencies revenues report data (json format)
+- '/revenues/agency/agency_id':  get all only revenues report data of a particular agency (json format)
+- '/revenues/agency/agency_id/year/year_number': get all only revenues report data of a particular agency and year (json format), i.e the data that meet the criteria.
+- '/clustering': get the cluster classification of the agencies (json format)
 
 
 
