@@ -18,6 +18,8 @@ I implemented the following methods for reporting:
 1.  Profitability: To extract a profitability report by product for the agency by and year.
 2.  Cash Flow: To extract a cashflow report by product by agencies and years
 3.  Revenues: To extract a revenue report by product by agencies and years
+4. Products: to extract all products
+5. Agencies: to getall agenncies
 
 
 **Categorization**
@@ -39,6 +41,63 @@ Next, install the dependencies:
 .. code-block:: bash
 
     $ pip install -r requirements.txt
+
+
+
+
+REST API
+========
+
+I implemented A REST API based on the above ETL process working with mysql + elasticbeanstalk from aws, with secure token API
+
+1. Currently there is only 1 user, guest with password guest
+2. I secured the API wth jwt in flask
+3. I implemeted a Dashboard single page web  with Javascrtip, Jquey, datatable, flask and chart.js for the visualization
+
+you can use the API using curl or postman:
+please login with the credentials and get the token (this token will expires in 1 hour)
+
+.. code-block:: bash
+
+	$curl -X POST -F username=guest -F password=guest http://localhost:5000/login
+
+Save the authorizaton token and send it with every api request, for example to request all products dimension:
+
+.. code-block:: bash
+
+	curl -X GET http://flaskapp1-dev22.us-west-2.elasticbeanstalk.com/allproducts  -H "authorization: Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTY5OTI2MDUsIm5iZiI6MTU1Njk5MjYwNSwianRpIjoiNzMyZWRkM2QtN2YxMi00MzMzLTkyNWMtYzEyMDAxMDIzYzYxIiwiZXhwIjoxNTU2OTk2MjA1LCJpZGVudGl0eSI6ImFybWFuZDIiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.bCUipAp6h6BzX-gohHLmBq39sXhEUYhy6AZXlW94lT4" 
+
+this return the list of products in json format
+
+The another end points implemented are:
+------------------------------------------
+
+- '/cashreport': get all agencies cash flow report data 
+- '/cashreport/agency/agency_id': get only cash flow report data from agency id equal to agency_number (json format)
+- '/profitability': get all agencies profitabilities report data (json format)
+- '/profitability/agency/agency_id': get all only profitabilities report data of a particular agency (json format)
+- '/profitability/agency/agency_id/year/year_number':  get all only profitabilities report data of a particular agency and year (json format), i.e the data that meet the criteria.
+- '/alldata': Downdload CSV 
+- '/allagencies': get all agencies dimension (json format) 
+- '/allproducts': get all products dimension (json format) 
+- '/revenues':  get all agencies revenues report data (json format)
+- '/revenues/agency/agency_id':  get all only revenues report data of a particular agency (json format)
+- '/revenues/agency/agency_id/year/year_number': get all only revenues report data of a particular agency and year (json format), i.e the data that meet the criteria.
+- '/clustering': get the cluster classification of the agencies (json format)
+
+
+
+
+THE DASHBOARD
+===============
+
+As I said you can explore the dashboard thorugt the site:
+http://flaskapp1-dev22.us-west-2.elasticbeanstalk.com/
+
+login the credentials above, and see the single page I implemented with Javascript, Jquery, Datatable and Chart.js, and styles with boostrap.
+
+note: the database is created/populated at the very first request after you started the sever 
+
 
 
 
@@ -91,58 +150,3 @@ To export a clster report run the following command (to export to a csv instead,
 .. code-block:: bash
 
     $ python report.py cluster --dest csv
-
-
-
-
-REST API
-========
-
-I implemented A REST API based on the above ETL process working with mysql + elasticbeanstalk from aws, with secure token API
-
-1. Currently there is only 1 user, guest with password guest
-2. I secured the API wth jwt in flask
-3. I implemeted a Dashboard single page web  with Javascrtip, Jquey, datatable, flask and chart.js for the visualization
-
-you can use the API using curl or postman:
-please login with the credentials and get the token (this token will expires in 1 hour)
-
-.. code-block:: bash
-
-	$curl -X POST -F username=guest -F password=guest http://localhost:5000/login
-
-Save the authorizaton token and send it with every api request, for example to request all products dimension:
-
-.. code-block:: bash
-
-	curl -X GET http://flaskapp1-dev22.us-west-2.elasticbeanstalk.com/allproducts  -H "authorization: Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTY5OTI2MDUsIm5iZiI6MTU1Njk5MjYwNSwianRpIjoiNzMyZWRkM2QtN2YxMi00MzMzLTkyNWMtYzEyMDAxMDIzYzYxIiwiZXhwIjoxNTU2OTk2MjA1LCJpZGVudGl0eSI6ImFybWFuZDIiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.bCUipAp6h6BzX-gohHLmBq39sXhEUYhy6AZXlW94lT4" 
-
-this return the list of products in json format
-
-The another end points implemented are:
-------------------------------------------
-
-- '/cashreport': get all agencies cash flow report data 
-- '/cashreport/agency/agency_id': get only cash flow report data from agency id equal to agency_number (json format)
-- '/profitability': get all agencies profitabilities report data (json format)
-- '/profitability/agency/agency_id': get all only profitabilities report data of a particular agency (json format)
-- '/profitability/agency/agency_id/year/year_number':  get all only profitabilities report data of a particular agency and year (json format), i.e the data that meet the criteria.
-- '/alldata': Downdload CSV 
-- '/allagencies': get all agencies dimension (json format) 
-- '/allproducts': get all products dimension (json format) 
-- '/revenues':  get all agencies revenues report data (json format)
-- '/revenues/agency/agency_id':  get all only revenues report data of a particular agency (json format)
-- '/revenues/agency/agency_id/year/year_number': get all only revenues report data of a particular agency and year (json format), i.e the data that meet the criteria.
-- '/clustering': get the cluster classification of the agencies (json format)
-
-
-
-THE DASHBOARD
-===============
-
-As I said you can explore the dashboard thorugt the site:
-http://flaskapp1-dev22.us-west-2.elasticbeanstalk.com/
-
-login the credentials above, and see the single page I implemented with Javascript, Jquery, Datatable and Chart.js, and styles with boostrap.
-
-note: the database is created/populated at the very first request after you started the sever 
