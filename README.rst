@@ -14,13 +14,13 @@ I desing a star shecheme for the file like you can see below
 
 
 I implemented the following methods for reporting:
-1. Profitability: To extract a profitability report by product for the agency by and year.
-2. Cash Flow: To extract a cashflow report by product by agencies and years
-3. Revenues: To extract a revenue report by product by agencies and years
+1.  Profitability: To extract a profitability report by product for the agency by and year.
+2.  Cash Flow: To extract a cashflow report by product by agencies and years
+3.  Revenues: To extract a revenue report by product by agencies and years
 
 
-## Categorization
-We implemented the <strong>K-Mean</strong> algorithm in order to Clustering the agencies based in similarities and to find groups(clusters) in the given data.
+**Categorization**x
+We implemented the K-Mean algorithm in order to Clustering the agencies based in similarities and to find groups(clusters) in the given data.
 
 
 Instructions
