@@ -32,6 +32,54 @@ I implemented the following methods for reporting:
 We implemented the K-Mean algorithm in order to Clustering the agencies based in similarities and to find groups(clusters) in the given data.
 
 
+Project File Structure
+========================
+The files and in this poject:
++flaskAppETL/
+| +--- application.py
+| +--- config.py
+| +--- etl.log
+| +--- models.py
+| +--- README.rst
+| +--- requirements.txt
+| +--- resources.py
+| +--- views.py
+  |
+  +api/
+  | +--- clusters.csv
+  | +--- etl.log
+  | +--- report.py
+  | +--- revenues_facts.csv
+  | +--- __init__.py
+  |
+  +data/
+  | +--- etl.log
+  | +--- etl.py
+  | +--- finalapi.csv
+  | +--- insurance.db
+  | +--- Team_lm.ipynb
+  | +--- Untitled5.ipynb
+  | +--- Untitled6.ipynb
+  |
+  +static/
+    |
+    +css/
+    | +--- custome.css
+    | +--- sb-admin.css
+    | +--- sb-admin.min.css
+    |
+    +js/
+    | +--- customer.js
+  |
+  +templates/
+  | +--- dashboard.html
+  | +--- signin.html
+
+
+
+
+
+
 Instructions
 ============
 
@@ -52,6 +100,7 @@ To run the server on localhost:
 .. code-block:: bash
 
     $ python application.py
+
 
 
 REST API
