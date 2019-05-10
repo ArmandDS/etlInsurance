@@ -47,7 +47,11 @@ Next, install the dependencies:
 
     $ pip install -r requirements.txt
 
+To run the server on localhost:
 
+.. code-block:: bash
+
+    $ python application.py
 
 
 REST API
