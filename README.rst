@@ -37,8 +37,8 @@ Project File Structure
 The files on this project::
 
 	+flaskAppETL/
-	| +--- application.py:  the server file
-	| +--- config.py : The coniguration file, here is the database URI, the jwt inicialization
+	| +--- application.py:  *the server file*
+	| +--- config.py : The configuration file, here is the database URI, the jwt inicialization
 	| +--- etl.log : log of the server
 	| +--- models.py: the sqlalchemy database model for users
 	| +--- README.rst
@@ -50,7 +50,7 @@ The files on this project::
 	  | +--- report.py: the end point file where the report are created
 	  |
 	  +data/
-	  | +--- etl.py: The ETL file, where we load and cleaning the data 
+	  | +--- etl.py: The ETL file, where we cleaning and loading the data to database 
 	  | +--- finalapi.csv
 	  |
 	  +static/
@@ -61,7 +61,7 @@ The files on this project::
 	    | +--- sb-admin.min.css
 	    |
 	    +js/
-	    | +--- customer.js: Our main Javascript file, to load the charts, the tables and the ajax request
+	    | +--- customer.js: Our main Javascript file, handles the load the charts, the tables and the ajax request
 	  |
 	  +templates/
 	  | +--- dashboard.html: the html of the main dashboard
