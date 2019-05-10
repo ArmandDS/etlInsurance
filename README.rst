@@ -11,16 +11,20 @@ I created a web Dasboard with some visualizations.
 
 Developments
 ============
-I desing a star shecheme for the file like you can see below
+I designed an star shecheme for the file like you can see below
 
+-  Revenues: The fatcs
+-  Product: Dimension
+-  Agencies: Dimension
+-  Cluster: Dimension
 
 I implemented the following methods for reporting:
 
 1.  Profitability: To extract a profitability report by product for the agency by and year.
 2.  Cash Flow: To extract a cashflow report by product by agencies and years
 3.  Revenues: To extract a revenue report by product by agencies and years
-4. Products: to extract all products
-5. Agencies: to get all agencies
+4.  Products: to extract all products
+5.  Agencies: to get all agencies
 
 
 **Categorization**
