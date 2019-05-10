@@ -34,42 +34,38 @@ We implemented the K-Mean algorithm in order to Clustering the agencies based in
 
 Project File Structure
 ========================
-The files and in this project::
+The files on this project::
 
 	+flaskAppETL/
-	| +--- application.py
-	| +--- config.py
-	| +--- etl.log
-	| +--- models.py
+	| +--- application.py:  the server file
+	| +--- config.py : The coniguration file, here is the database URI, the jwt inicialization
+	| +--- etl.log : log of the server
+	| +--- models.py: the sqlalchemy database model for users
 	| +--- README.rst
 	| +--- requirements.txt
-	| +--- resources.py
-	| +--- views.py
+	| +--- resources.py: the API file where we call the API and the authorization jwt
+	| +--- views.py: The route file, this file handle the routes 
 	  |
 	  +api/
-	  | +--- clusters.csv
-	  | +--- etl.log
-	  | +--- report.py
-	  | +--- revenues_facts.csv
+	  | +--- report.py: the end point file where the report are created
 	  |
 	  +data/
-	  | +--- etl.log
-	  | +--- etl.py
+	  | +--- etl.py: The ETL file, where we load and cleaning the data 
 	  | +--- finalapi.csv
 	  |
 	  +static/
 	    |
 	    +css/
-	    | +--- custome.css
+	    | +--- custome.css: our css stylesheet
 	    | +--- sb-admin.css
 	    | +--- sb-admin.min.css
 	    |
 	    +js/
-	    | +--- customer.js
+	    | +--- customer.js: Our main Javascript file, to load the charts, the tables and the ajax request
 	  |
 	  +templates/
-	  | +--- dashboard.html
-	  | +--- signin.html
+	  | +--- dashboard.html: the html of the main dashboard
+	  | +--- signin.html: the index file
 
 
 
