@@ -100,7 +100,7 @@ REST API
 
 I implemented A REST API based on the above ETL process working with mysql + elasticbeanstalk from aws, with secure token API
 
-1. Currently there is only 1 user, guest with password guest
+1. Currently there is only 1 user:**guest** with password: **guest**
 2. I secured the API wth jwt in flask
 3. I implemeted a Dashboard single page web  with Javascrtip, Jquey, datatable, flask and chart.js for the visualization
 
@@ -111,13 +111,13 @@ please login with the credentials and get the token (this token will expires in 
 
 	$curl -X POST -F username=guest -F password=guest http://localhost:5000/login
 
-Save the authorizaton token and send it with every api request, for example to request all products dimension:
+Save the authorizaton token and send it with every api request, for example to request all **/products** dimension:
 
 .. code-block:: bash
 
 	curl -X GET http://flaskapp1-dev22.us-west-2.elasticbeanstalk.com/allproducts  -H "authorization: Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTY5OTI2MDUsIm5iZiI6MTU1Njk5MjYwNSwianRpIjoiNzMyZWRkM2QtN2YxMi00MzMzLTkyNWMtYzEyMDAxMDIzYzYxIiwiZXhwIjoxNTU2OTk2MjA1LCJpZGVudGl0eSI6ImFybWFuZDIiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.bCUipAp6h6BzX-gohHLmBq39sXhEUYhy6AZXlW94lT4" 
 
-this return the list of products in json format
+this return the list of products in json format.
 
 The another end points implemented are:
 ------------------------------------------
@@ -141,7 +141,7 @@ The another end points implemented are:
 THE DASHBOARD
 ===============
 
-As I said you can explore the dashboard thorugt the site:
+As I said you can explore the dashboard throught the site:
 http://flaskapp1-dev22.us-west-2.elasticbeanstalk.com/
 
 login the credentials above, and see the single page I implemented with Javascript, Jquery, Datatable and Chart.js, and styles with boostrap.
