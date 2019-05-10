@@ -37,35 +37,35 @@ Project File Structure
 The files on this project::
 
 	+flaskAppETL/
-	| +--- application.py:  *the server file*
-	| +--- config.py : The configuration file, here is the database URI, the jwt inicialization
-	| +--- etl.log : log of the server
-	| +--- models.py: the sqlalchemy database model for users
+	| +--- application.py:      the server file
+	| +--- config.py :          the configuration file, here is the database URI, the jwt inicialization
+	| +--- etl.log :            log of the server
+	| +--- models.py:           the sqlalchemy database model for users
 	| +--- README.rst
 	| +--- requirements.txt
-	| +--- resources.py: the API file where we call the API and the authorization jwt
-	| +--- views.py: The route file, this file handle the routes 
+	| +--- resources.py:        the API file where we call the API endpoints
+	| +--- views.py:            the route file, where the views are created 
 	  |
 	  +api/
-	  | +--- report.py: the end point file where the report are created
+	  | +--- report.py:         the end point file where the report are created
 	  |
 	  +data/
-	  | +--- etl.py: The ETL file, where we cleaning and loading the data to database 
+	  | +--- etl.py:            the ETL file, where we cleaning and loading the data to database 
 	  | +--- finalapi.csv
 	  |
 	  +static/
 	    |
 	    +css/
-	    | +--- custome.css: our css stylesheet
+	    | +--- custome.css:      our css stylesheet
 	    | +--- sb-admin.css
 	    | +--- sb-admin.min.css
 	    |
 	    +js/
-	    | +--- customer.js: Our main Javascript file, handles the load the charts, the tables and the ajax request
+	    | +--- customer.js:      our main Javascript file, handles the load of charts, the tables and the ajax request
 	  |
 	  +templates/
-	  | +--- dashboard.html: the html of the main dashboard
-	  | +--- signin.html: the index file
+	  | +--- dashboard.html:     the html of the main dashboard
+	  | +--- signin.html:        the index file
 
 
 
