@@ -34,7 +34,7 @@ We implemented the K-Mean algorithm in order to Clustering the agencies based in
 
 Project File Structure
 ========================
-The files and in this poject:
+The files and in this project::
 
 +flaskAppETL/
 | +--- application.py
@@ -51,16 +51,11 @@ The files and in this poject:
   | +--- etl.log
   | +--- report.py
   | +--- revenues_facts.csv
-  | +--- __init__.py
   |
   +data/
   | +--- etl.log
   | +--- etl.py
   | +--- finalapi.csv
-  | +--- insurance.db
-  | +--- Team_lm.ipynb
-  | +--- Untitled5.ipynb
-  | +--- Untitled6.ipynb
   |
   +static/
     |
