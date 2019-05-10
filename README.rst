@@ -36,40 +36,40 @@ Project File Structure
 ========================
 The files and in this project::
 
-+flaskAppETL/
-| +--- application.py
-| +--- config.py
-| +--- etl.log
-| +--- models.py
-| +--- README.rst
-| +--- requirements.txt
-| +--- resources.py
-| +--- views.py
-  |
-  +api/
-  | +--- clusters.csv
-  | +--- etl.log
-  | +--- report.py
-  | +--- revenues_facts.csv
-  |
-  +data/
-  | +--- etl.log
-  | +--- etl.py
-  | +--- finalapi.csv
-  |
-  +static/
-    |
-    +css/
-    | +--- custome.css
-    | +--- sb-admin.css
-    | +--- sb-admin.min.css
-    |
-    +js/
-    | +--- customer.js
-  |
-  +templates/
-  | +--- dashboard.html
-  | +--- signin.html
+	+flaskAppETL/
+	| +--- application.py
+	| +--- config.py
+	| +--- etl.log
+	| +--- models.py
+	| +--- README.rst
+	| +--- requirements.txt
+	| +--- resources.py
+	| +--- views.py
+	  |
+	  +api/
+	  | +--- clusters.csv
+	  | +--- etl.log
+	  | +--- report.py
+	  | +--- revenues_facts.csv
+	  |
+	  +data/
+	  | +--- etl.log
+	  | +--- etl.py
+	  | +--- finalapi.csv
+	  |
+	  +static/
+	    |
+	    +css/
+	    | +--- custome.css
+	    | +--- sb-admin.css
+	    | +--- sb-admin.min.css
+	    |
+	    +js/
+	    | +--- customer.js
+	  |
+	  +templates/
+	  | +--- dashboard.html
+	  | +--- signin.html
 
 
 
