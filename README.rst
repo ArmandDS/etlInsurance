@@ -119,7 +119,19 @@ Save the authorizaton token and send it with every api request, for example to r
 
 this return the list of products in json format.
 
-The another end points implemented are:
+
+
+to request a profitabilty report for agency 16 for all years  all **/profitability/agency/16** :
+
+.. code-block:: bash
+
+	curl -X GET http://flaskapp1-dev22.us-west-2.elasticbeanstalk.com/profitability/agency/16  -H "authorization: Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTY5OTI2MDUsIm5iZiI6MTU1Njk5MjYwNSwianRpIjoiNzMyZWRkM2QtN2YxMi00MzMzLTkyNWMtYzEyMDAxMDIzYzYxIiwiZXhwIjoxNTU2OTk2MjA1LCJpZGVudGl0eSI6ImFybWFuZDIiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.bCUipAp6h6BzX-gohHLmBq39sXhEUYhy6AZXlW94lT4" 
+
+this return the list of products in json format.
+
+
+
+The Completed end points implemented are:
 ------------------------------------------
 
 - '/cashreport': get all agencies cash flow report data 
