@@ -150,7 +150,7 @@ The Completed end points implemented are:
 
 
 
-THE DASHBOARD
+THE WEB DASHBOARD
 ===============
 
 As I said you can explore the dashboard throught the site:
@@ -161,6 +161,43 @@ login the credentials above, and see the single page I implemented with Javascri
 note: the database is created/populated at the very first request after you started the sever 
 
 
+
+Some of the views of the dashboard:
+------------------------------------------
+
+
+.. image:: /static/images/1.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :alt: alternate text
+
+
+.. image:: /static/images/2.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :alt: alternate text
+
+
+.. image:: /static/images/3.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :alt: alternate text
+
+
+.. image:: /static/images/4.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :alt: alternate text
+
+.. image:: /static/images/5.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    :alt: alternate text
 
 
 

@@ -45,7 +45,6 @@ function newRequest () {
     }
     
     var form = new FormData(document.getElementById('formlogin'));
-    console.log(form);
     fetch('/login', {
         method: 'post',
         body: form,

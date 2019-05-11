@@ -3,7 +3,6 @@ Main module of the server file
 """
 
 # 3rd party moudles
-
 from flask import render_template, Flask
 from flask_jwt_extended import (create_access_token, create_refresh_token, jwt_required, jwt_refresh_token_required,jwt_optional, get_jwt_identity, get_raw_jwt)
 from flask.json import jsonify
@@ -16,8 +15,8 @@ from flask_restful import Api
 from flask_jwt_extended import JWTManager
 from apscheduler.schedulers.background import BackgroundScheduler
 import atexit
-# Local modules
 
+# Local modules
 from  data import etl
 from sqlalchemy.engine import create_engine, Engine
 from api.report import *
@@ -63,8 +62,7 @@ api.add_resource(resources.Clustering, '/clustering')
 
 
 def etlScheduled():
-    """ Function for test purposes. """
-    print("Scheduler is alive!")
+    """ Function for run the etl process every day at 00 """
     etl.main()
 
 sched = BackgroundScheduler(daemon=True)
@@ -78,7 +76,7 @@ atexit.register(lambda: sched.shutdown())
 @application.before_first_request
 def create_tables():
     db.create_all()
-    etl.main()
+    #etl.main()
     
 @application.route('/')
 @application.route('/signin')
