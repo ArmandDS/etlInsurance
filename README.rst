@@ -111,7 +111,7 @@ please login with the credentials and get the token (this token will expires in 
 
 	$curl -X POST -F username=guest -F password=guest http://localhost:5000/login
 
-Save the authorizaton token and send it with every api request, for example to request all **/products** dimension:
+Save the authorizaton token and send it with every api request, for example to request all products **/allproducts** dimension:
 
 .. code-block:: bash
 
@@ -121,7 +121,7 @@ this return the list of products in json format.
 
 
 
-to request a profitabilty report for agency 16 for all years  all **/profitability/agency/16** :
+to request a profitabilty report for agency 16 for all years  **/profitability/agency/16** :
 
 .. code-block:: bash
 

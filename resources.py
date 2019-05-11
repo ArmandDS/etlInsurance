@@ -44,7 +44,7 @@ class UserRegistration(Resource):
         )
         try:
             if UserModel.find_by_username(data['username']):
-                return {'message': 'User {} already exists'. format(data['username'])}
+                return {'message': 'User {} already exists'. format(data['username'])}, 401
             new_user.save_to_db()
             access_token = create_access_token(identity = data['username'])
             refresh_token = create_refresh_token(identity = data['username'])
@@ -63,10 +63,10 @@ class UserLogin(Resource):
         data = parser.parse_args()
         current_user = UserModel.find_by_username(data['username'])
         if not current_user:
-            return {'message': 'User {} doesn\'t exist'.format(data['username'])}
+            return {'message': 'User {} doesn\'t exist'.format(data['username'])}, 401
         
         if UserModel.verify_hash(data['password'], current_user.password):
-            expires = datetime.timedelta(hours=1)
+            expires = datetime.timedelta(hours=3)
             access_token = create_access_token(identity = data['username'], expires_delta=expires)
             refresh_token = create_refresh_token(identity = data['username'])
             return {
@@ -87,7 +87,7 @@ class UserLogoutAccess(Resource):
         try:
             revoked_token = RevokedTokenModel(jti = jti)
             revoked_token.add()
-            return {'message': 'Access token has been revoked'}
+            return {'message': 'Access token has been revoked'}, 401
         except Exception as e:
             logger.error(f"There was an error: {e}") 
             return {'message': 'Something went wrong'}, 500
@@ -100,7 +100,7 @@ class UserLogoutRefresh(Resource):
         try:
             revoked_token = RevokedTokenModel(jti = jti)
             revoked_token.add()
-            return {'message': 'Refresh token has been revoked'}
+            return {'message': 'Refresh token has been revoked'}, 401
         except Exception as e:
             logger.error(f"There was an error: {e}") 
             return {'message': 'Something went wrong'}, 500
