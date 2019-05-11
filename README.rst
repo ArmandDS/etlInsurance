@@ -166,11 +166,16 @@ Some of the views of the dashboard:
 ------------------------------------------
 
 
+The Profitability report for agency 102 and year 2010:
+
+
 .. image:: /static/images/1.PNG
     :width: 200px
     :align: center
     :height: 100px
     :alt: alternate text
+
+The cash flow for agency 45 and last 5 years:
 
 
 .. image:: /static/images/2.PNG
@@ -187,11 +192,18 @@ Some of the views of the dashboard:
     :alt: alternate text
 
 
+The revenue report for agency 1010 and year 2014:
+
+
 .. image:: /static/images/4.PNG
     :width: 200px
     :align: center
     :height: 100px
     :alt: alternate text
+
+
+The clustering of agencies:
+
 
 .. image:: /static/images/5.PNG
     :width: 200px
