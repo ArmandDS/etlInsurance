@@ -166,34 +166,34 @@ Some of the views of the dashboard:
 ------------------------------------------
 
 
-.. image:: /static/images/1.png
+.. image:: /static/images/1.PNG
     :width: 200px
     :align: center
     :height: 100px
     :alt: alternate text
 
 
-.. image:: /static/images/2.png
+.. image:: /static/images/2.PNG
     :width: 200px
     :align: center
     :height: 100px
     :alt: alternate text
 
 
-.. image:: /static/images/3.png
+.. image:: /static/images/3.PNG
     :width: 200px
     :align: center
     :height: 100px
     :alt: alternate text
 
 
-.. image:: /static/images/4.png
+.. image:: /static/images/4.PNG
     :width: 200px
     :align: center
     :height: 100px
     :alt: alternate text
 
-.. image:: /static/images/5.png
+.. image:: /static/images/5.PNG
     :width: 200px
     :align: center
     :height: 100px
