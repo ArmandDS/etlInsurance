@@ -39,8 +39,6 @@
 
 function newRequest () {
 
-    console.log("NEW REQUEST");
-    //const { authenticated } = this.state;
     const loginUser = {
         username: $("#login").val(),
         password: $("#password").val()
@@ -53,21 +51,17 @@ function newRequest () {
         body: form,
         }).then((response) => {
         if (response.statusText === "OK"){
-            //resp = response.text();
-            console.log(response);
-
             response.json().then(post => {
             localStorage.setItem('token', post.access_token);
-            console.log(post);
-            //return false;
-            console.log("READED:"+localStorage.getItem('token'));
-            /////////////////////////
+  
             setCookie("name", post.message, 1);
            
             window.location.href = "/dashboard";
             })
         } else {
             alert ('Incorrect Login Credentials');
+            localStorage.setItem('token', '');
+            setCookie("name", '', 1);
             return false;
         }
     })
@@ -85,39 +79,6 @@ function setCookie(name, value, days) {
   }
   document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
-
-
-function redirect( token){
-
-console.log("RED")
-var dataValue = 1;
-$.ajax({
-            type : 'POST',
-            //remove the .php from results.php.php
-            url : "/partial",
-            //Add the request header
-            headers : {
-                Authorization : 'Bearer ' + localStorage.getItem('token'),
-            },
-            
-            //Add form data
-            data : {keyName : dataValue},
-            success : function(response) {
-                console.log(JSON.stringify(response)+ "RESPONSE");
-                return false;
-            },
-            error : function(response) {
-               // var err = eval("(" + xhr.responseText + ")");
-                console.log("err"+ response.text); 
-                return false;                  
-            }
-        });
-        
-        return false; //End of Ajax
-}  
-
-
-
 
 
 

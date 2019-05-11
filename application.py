@@ -14,6 +14,8 @@ import pandas as pd
 import numpy as np
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
+from apscheduler.schedulers.background import BackgroundScheduler
+import atexit
 # Local modules
 
 from  data import etl
@@ -58,21 +60,18 @@ api.add_resource(resources.AllRevenues, '/revenues',  '/revenues/agency/<int:age
 api.add_resource(resources.Clustering, '/clustering')
 
 
-@application.route('/')
-@application.route('/signin')
-def signin():
-    return render_template("signin.html")
 
 
-@application.route('/dashboard', methods=["GET", "POST"])
-def dashboard():
-    if request.cookies.get('name'):
-        logger.debug(request.cookies.get('name'))
-        return render_template("dashboard.html")
-    else:
-        return render_template("signin.html")
+def etlScheduled():
+    """ Function for test purposes. """
+    print("Scheduler is alive!")
+    etl.main()
 
-
+sched = BackgroundScheduler(daemon=True)
+sched.add_job(etlScheduled,'cron', hour='0')
+sched.start()
+atexit.register(lambda: sched.shutdown())
+    
 
 
 
@@ -81,10 +80,21 @@ def create_tables():
     db.create_all()
     etl.main()
     
+@application.route('/')
+@application.route('/signin')
+def signin():
+    return render_template("signin.html")
+
+
+@application.route('/dashboard')
+def dashboard():
+    if request.cookies.get('name'):
+        return render_template("dashboard.html")
+    else:
+        return render_template("signin.html")
     
     
 
 if __name__ == '__main__':
-    application.debug = True
-    application.run()
+    application.run(debug=True)
     
