@@ -15,7 +15,6 @@ application.config['JWT_SECRET_KEY'] = 'jwt-secret-string'
 application.config['JWT_BLACKLIST_ENABLED'] = True
 application.config['JWT_BLACKLIST_TOKEN_CHECKS'] = ['access', 'refresh']
 
-#application.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://testflask:Test2019--@mydbinsurance.cw3mhyuafkex.eu-west-1.rds.amazonaws.com:3306/mydbinsurance'
 application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/insurance.db'
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 application.config['SECRET_KEY'] = 'some-secret-string'
